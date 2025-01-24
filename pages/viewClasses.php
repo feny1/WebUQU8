@@ -1,3 +1,6 @@
+<?php 
+  include "../data/test_data.php";
+?>
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 
@@ -14,11 +17,13 @@
   <h1 class="heading">الفصول الدراسية</h1>
 
   <main class="container">
-    <a href="#" class="classroom">
-      <h2 class="title">عنوان الفصل الدراسي</h2>
-      <p class="desc">الفصل الدراسي لمادة الشبكات</p>
-      <p class="limit">الحد الأقصى للطلاب: 40</p>
-    </a>
+    <?php foreach ($classes as $class) { ?>
+      <a href="./viewGroups.php?id=<?php echo $class['id']; ?>" class="classroom">
+        <h2 class="title"><?php echo $class['title']; ?></h2>
+        <p class="desc"><?php echo $class['description']; ?></p>
+        <p class="limit">الحد الأقصى للطلاب: <?php echo $class['limit']; ?></p>
+      </a>
+    <?php } ?>
   </main>
 </body>
 
