@@ -1,0 +1,128 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+body {
+  display: grid;
+  place-items: center;
+
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+form {
+  box-shadow: rgb(50, 50, 242) 0px 5px 10px 0px;
+  border: 1px solid #333;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 767px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+}
+
+.rate {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-block: 1rem;
+
+  gap: 0.5rem;
+}
+
+.rate .content {
+  flex: 1;
+  display: flex;
+  justify-content: left;
+}
+
+@media (min-width: 767px) {
+  .rate {
+    flex-direction: row;
+  }
+  .rate-title {
+    font-size: 1.5rem;
+  }
+}
+
+input[type="radio"] {
+  display: none;
+  appearance: none;
+}
+
+.rate input + label {
+  display: block;
+  padding: 0.75rem 1.25rem;
+  margin-inline: 0.5rem;
+  border: 1px solid #333;
+  border-radius: 5px;
+
+  cursor: pointer;
+}
+
+.rate input:checked + label,
+.rate input:hover + label {
+  color: rgb(50, 50, 242);
+  border: 1px solid rgb(50, 50, 242);
+}
+
+.rate input:active + label {
+  transition-duration: 200ms;
+  box-shadow: inset rgb(50, 50, 242) 0px 0px 4px 0px;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.grading input {
+  text-align: center;
+  max-width: 60px;
+
+  border: 1px solid #333;
+  border-radius: 3px;
+  padding: 0.25rem 0.5rem;
+  margin-bottom: 2rem;
+  outline: 0;
+}
+
+textarea {
+  width: 100%;
+  padding: 0.5rem;
+  resize: none;
+  margin-top: 0.5rem;
+
+  min-height: 150px;
+}
+
+button[type="submit"] {
+  padding: 0.75rem 1.5rem;
+  background-color: rgb(50, 50, 242);
+  color: #eee;
+  outline: 0;
+  border: 0;
+
+  border-radius: 4px;
+  margin-top: 2rem;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  filter: opacity(0.8);
+}

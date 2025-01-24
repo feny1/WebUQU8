@@ -1,0 +1,95 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+body {
+  padding: 2rem 4rem;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  box-shadow: 0 6px 10px 1px rgb(170, 170, 253);
+  padding: 1rem;
+  gap: 1rem;
+}
+
+@media (max-width: 767px) {
+  body {
+    padding: 2rem 1rem;
+  }
+
+  header {
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+header .user {
+  display: flex;
+  align-items: center;
+
+  gap: 1rem;
+}
+
+header .user img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+header nav {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  text-align: center;
+}
+
+header nav > * {
+  color: rgb(50, 50, 242);
+  padding: 0.5rem;
+
+  transition-duration: 200ms;
+}
+
+header nav > *:hover {
+  color: #dbe1f6;
+  background-color: #333;
+}
+
+h1.heading {
+  margin-block: 1.5rem;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+
+  gap: 1.5rem;
+}
+
+.classroom {
+  display: grid;
+  gap: 0.75rem;
+  background-image: linear-gradient(to right, #dbe1f6 10%, #eee);
+  padding: 1.5rem 1rem;
+  box-shadow: 0 0 5px 1px rgb(50, 50, 242);
+
+  color: #333;
+
+  cursor: pointer;
+}
+
+.classroom:hover {
+  transition-duration: 300ms;
+  transition-timing-function: ease-out;
+  transform: scale(1.03);
+
+  box-shadow: 0 0 5px 3px rgb(94, 28, 236);
+}
