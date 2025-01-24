@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إنشاء فصل جديد</title>
+    <style>
+        body {
+            background-color: #f0f4f8;
+            font-family: "Tahoma", Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px 40px;
+            width: 400px;
+            text-align: center;
+        }
+        .container h1 {
+            font-size: 24px;
+            color: #00796b;
+            margin-bottom: 20px;
+        }
+        .container p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            text-align: right;
+        }
+        .form-group label {
+            font-size: 14px;
+            color: #333;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #333;
+        }
+        .form-group textarea {
+            resize: none;
+            height: 80px;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #00796b;
+            outline: none;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #00796b;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .btn:hover {
+            background-color: #00574b;
+            transform: scale(1.03);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>إنشاء فصل جديد</h1>
+        <p>في هذه الصفحة يمكنك إضافة مجموعة جديدة في حال عدم وجود مجموعة.</p>
+        <form>
+            <div class="form-group">
+                <label for="group-name">اسم المجموعة</label>
+                <input type="text" id="group-name" placeholder="ادخل اسم المجموعة">
+            </div>
+            <div class="form-group">
+                <label for="group-description">وصف المجموعة</label>
+                <textarea id="group-description" placeholder="ادخل وصفاً للمجموعة"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="group-count">عدد المجموعة</label>
+                <input type="number" id="group-count" placeholder="ادخل عددًا فقط">
+            </div>
+            <div class="form-group">
+                <label for="group-id">رقم المجموعة</label>
+                <input type="number" id="group-id" placeholder="ادخل عددًا فقط">
+            </div>
+            <button type="submit" class="btn">إنشاء</button>
+        </form>
+    </div>
+</body>
+</html>
