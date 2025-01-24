@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الإعدادات</title>
+    <style>
+        body {
+            background-color: #e0f7fa;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; 
+            margin: 0;
+        }
+        .box {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+            padding: 30px;
+            text-align: center;
+            width: 350px;
+        }
+        .box h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #00796b;
+        }
+        .box p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            color: #555;
+        }
+        .box input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .buttons {
+            display: flex; 
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .buttons button {
+            padding: 10px 20px;
+            font-size: 14px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .buttons .edit {
+            background-color: #00796b;
+            color: white;
+        }
+        .buttons .logout {
+            background-color: #d32f2f;
+            color: white;
+        }
+        .buttons button:hover {
+            opacity: 0.9; 
+            transform: scale(1.05); 
+        }
+        .edit-section {
+            display: none; 
+            margin-top: 20px;
+        }
+        .edit-section button {
+            background-color: #4caf50; 
+            color: white;
+            width: 100%;
+        }
+        .link {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        .link a {
+            color: #00796b;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .link a:hover {
+            color: #004d40;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>الإعدادات</h1>
+        <p>في هذه الصفحة يمكنك تعديل معلوماتك<br>وأيضًا التواصل مع المعلم بسهولة</p>
+        
+        <div class="buttons">
+            <button class="edit" onclick="showEditSection()">تعديل معلومات</button>
+            <button class="logout">تسجيل خروج</button>
+        </div>
+
+        <div class="edit-section" id="edit-section">
+            <label for="username">تعديل اسم المستخدم:</label><br>
+            <input type="text" id="username" placeholder="أدخل اسم المستخدم"><br>
+            <button onclick="saveChanges()">حفظ التعديلات</button>
+        </div>
+
+        <div class="link">
+            <a href="#">تواصل مع المعلم</a>
+        </div>
+    </div>
+
+    <script>
+        function showEditSection() {
+            const editSection = document.getElementById('edit-section');
+            editSection.style.display = 'block';
+        }
+
+        function saveChanges() {
+            const usernameInput = document.getElementById('username');
+            alert('تم حفظ اسم المستخدم: ' + usernameInput.value);
+        }
+    </script>
+</body>
+</html>
