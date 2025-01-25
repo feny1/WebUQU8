@@ -1,11 +1,11 @@
 <?php
-  session_start();
-  // Example user data
-  $_SESSION['user'] = [
-    'username' => 'John Doe',
-    'role' => 'Admin'
-  ];
-  $loggedIn = isset($_SESSION['user']);
+session_start();
+// Example user data
+$_SESSION['user'] = [
+  'username' => 'John Doe',
+  'role' => 'Admin'
+];
+$loggedIn = isset($_SESSION['user']);
 ?>
 
 <head>
@@ -21,17 +21,17 @@
       </div>
     </div>
     <nav>
-      <a href="#">الفصول</a>
+      <a href="../pages/viewClasses.php">الفصول</a>
       <a href="#">المجموعات</a>
-      <a href="#">الإعدادات</a>
+      <a href="../pages/Setting.html">الإعدادات</a>
     </nav>
   <?php } else { ?>
     <nav>
-      <a href="#">الرئيسية</a>
-      <a href="#">الفصول</a>
+      <a href="../index.php">الرئيسية</a>
+      <a href="../pages/viewClasses.php">الفصول</a>
       <a href="#">المجموعات</a>
-      <a href="#">التسجيل</a>
-      <a href="#">الدخول</a>
+      <a href="../pages/SignUp.html">التسجيل</a>
+      <a href="../pages/SignIn.html">الدخول</a>
     </nav>
   <?php } ?>
 </header>
