@@ -19,7 +19,7 @@ $loggedIn = isset($_SESSION['user']);
     <nav>
       <a href="../index.php">الرئيسية</a>
       <a href="../pages/viewClasses.php">الفصول</a>
-      <a href="../pages/Setting.html">الإعدادات</a>
+      <a href="../pages/Setting.php">الإعدادات</a>
     </nav>
   <?php } else { ?>
     <nav class="login">

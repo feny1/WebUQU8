@@ -9,6 +9,7 @@
 </head>
 
 <body>
+  <?php include "../components/backButton.php" ?>
   <div class="signup-container">
     <h2>التسجيل</h2>
     <form action="/submit" method="POST">
