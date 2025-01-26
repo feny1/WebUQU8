@@ -1,11 +1,17 @@
 <?php
-include('../data/test_data.php');
-$_SESSION['user'] = [
-  'id' => 1,
-  'name' => 'John Doe',
-  'role' => 'Admin'
-];
-$user = $_SESSION['user'];
+include '../data/db.php';
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  $email = $_POST['email'];
+  $password = $_POST['password'];
+  $user = getUserByEmail($email);
+  if ($user && $user['password'] === $password) {
+    $_SESSION['user'] = $user;
+    header('Location: ../index.php');
+  } else {
+    echo 'البريد الإلكتروني أو كلمة المرور غير صحيحة';
+  }
+}
+$user = $_SESSION['user']??null;
 
 ?>
 <!DOCTYPE html>
@@ -21,7 +27,7 @@ $user = $_SESSION['user'];
 <body>
   <div class="signin-container">
     <h2>تسجيل الدخول</h2>
-    <form action="/submit" method="POST">
+    <form action="#" method="POST">
       <div class="form-group">
         <label for="email">البريد الإلكتروني</label>
         <input

@@ -1,3 +1,22 @@
+<?php
+include '../data/db.php';
+// add user check if email exists
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  $email = $_POST['email'];
+  $password = $_POST['password'];
+  $role = $_POST['role'];
+  $name = $_POST['name'];
+  $user = getUserByEmail($email);
+  if ($user) {
+    echo 'البريد الإلكتروني موجود بالفعل';
+  } else {
+    $db->exec("INSERT INTO users (name,email, password, role) VALUES ('$name','$email', '$password', '$role')");
+    header('Location: SignIn.php');
+  }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 
@@ -11,7 +30,7 @@
 <body>
   <div class="signup-container">
     <h2>التسجيل</h2>
-    <form action="/submit" method="POST">
+    <form action="#" method="POST">
       <div class="form-group">
         <label for="email">البريد الإلكتروني</label>
         <input
@@ -19,6 +38,15 @@
           id="email"
           name="email"
           placeholder="أدخل بريدك الإلكتروني"
+          required />
+      </div>
+      <div class="form-group">
+        <label for="name">الاسم</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="أدخل اسمك"
           required />
       </div>
       <div class="form-group">
