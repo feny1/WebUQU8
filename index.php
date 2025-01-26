@@ -1,5 +1,5 @@
 <?php
-session_start();
+include_once('./data/test_data.php');
 ?>
 
 <!DOCTYPE html>

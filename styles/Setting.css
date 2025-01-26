@@ -41,7 +41,8 @@ body {
   justify-content: space-between;
   margin-top: 20px;
 }
-.buttons button {
+.buttons button,
+.buttons a {
   padding: 10px 20px;
   font-size: 14px;
   border: none;

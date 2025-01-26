@@ -3,12 +3,8 @@
 
 session_start();
 
-$_SESSION['user'] = [
-    'id' => 1,
-    'name' => 'John Doe',
-    'role' => 'Admin'
-];
-$user = $_SESSION['user'];
+
+$user = $_SESSION['user'] ?? null;
 
 $users = [
     ['id' => 1, 'name' => 'John Doe', 'role' => 'Student'],
