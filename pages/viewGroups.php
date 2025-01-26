@@ -26,7 +26,7 @@ if (isset($class)) {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>
-    <?php echo $title ?> القروبات
+    <?php echo $title ?> مجموعات
   </title>
   <link rel="stylesheet" href="../styles/viewGroups.css" />
 </head>
@@ -35,9 +35,9 @@ if (isset($class)) {
   <?php include "../components/navbar.php" ?>
 
   <h1 class="heading">
-    (
+    مجموعات (
     <?php echo $title ?>
-    ) القروبات
+    )
   </h1>
 
   <main class="container">

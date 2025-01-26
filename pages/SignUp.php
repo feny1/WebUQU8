@@ -28,6 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body>
+  <?php include "../components/backButton.php" ?>
   <div class="signup-container">
     <h2>التسجيل</h2>
     <form action="#" method="POST">

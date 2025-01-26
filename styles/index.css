@@ -1,7 +1,7 @@
 /* Styles will be added in this folder */
 body {
   padding: 1rem 2rem;
-  background-image: linear-gradient(135deg, #f4f4f4, rgba(50, 50, 242, 0.205));
+  background-image: linear-gradient(135deg, #f4f4f4, rgba(50, 50, 242, 0.174));
 }
 
 h1 {
@@ -62,4 +62,10 @@ main a:hover {
 main a.call {
   background-color: rgb(50, 50, 242);
   color: #fafafa;
+}
+
+@media (max-width: 767px) {
+  main a {
+    font-size: 1.5rem;
+  }
 }
