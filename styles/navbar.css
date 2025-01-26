@@ -38,15 +38,23 @@ header nav {
   align-items: center;
   text-align: center;
 }
+header nav.login {
+  flex: 1;
+  justify-content: space-between;
+}
+header nav div {
+  display: flex;
+  gap: 0.5rem;
+}
 
-header nav > * {
+header nav a {
   color: rgb(50, 50, 242);
   padding: 0.5rem;
 
   transition-duration: 200ms;
 }
 
-header nav > *:hover {
+header nav a:hover {
   color: #dbe1f6;
   background-color: #333;
 }

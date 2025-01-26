@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 // Example user data
 $_SESSION['user'] = [
   'username' => 'John Doe',
@@ -26,12 +26,17 @@ $loggedIn = isset($_SESSION['user']);
       <a href="../pages/Setting.html">الإعدادات</a>
     </nav>
   <?php } else { ?>
-    <nav>
-      <a href="../index.php">الرئيسية</a>
-      <a href="../pages/viewClasses.php">الفصول</a>
-      <a href="#">المجموعات</a>
-      <a href="../pages/SignUp.html">التسجيل</a>
-      <a href="../pages/SignIn.html">الدخول</a>
+    <nav class="login">
+      <div>
+        <a href="../index.php">الرئيسية</a>
+        <a href="../pages/viewClasses.php">الفصول</a>
+        <a href="#">المجموعات</a>
+      </div>
+      <div>
+        <a href="../pages/SignUp.html">التسجيل</a>
+        <a href="../pages/SignIn.html">الدخول</a>
+      </div>
+
     </nav>
   <?php } ?>
 </header>
