@@ -22,15 +22,12 @@ $loggedIn = isset($_SESSION['user']);
     </div>
     <nav>
       <a href="../pages/viewClasses.php">الفصول</a>
-      <a href="#">المجموعات</a>
       <a href="../pages/Setting.html">الإعدادات</a>
     </nav>
   <?php } else { ?>
     <nav class="login">
       <div>
         <a href="../index.php">الرئيسية</a>
-        <a href="../pages/viewClasses.php">الفصول</a>
-        <a href="#">المجموعات</a>
       </div>
       <div>
         <a href="../pages/SignUp.html">التسجيل</a>
