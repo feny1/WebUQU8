@@ -61,8 +61,12 @@ if (isset($class)) {
       </div>
     <?php } ?>
 
-    <?php foreach ($groups as $group) { ?>
-      <a href="./viewGroupDetails.php?id=<?php echo $group['id']; ?>" class="group">
+    <?php foreach ($groups as $group) {
+      $_group_students = getGroupStudentsByGroupId($group['id']);
+         ?>
+      <!-- If student is a member of the group, add a class "joined" -->
+       
+      <a href="./viewGroupDetails.php?id=<?php echo $group['id']; ?>" class="group <?php echo in_array($user['id'], array_column($_group_students, 'id')) ? 'joined' : ''; ?>">
         <h2 class="title"><?php echo $group['title']; ?></h2>
         <p class="desc"><?php echo $group['description']; ?></p>
         <p class="limit">الحد الأقصى للطلاب: <?php echo $group['limit']; ?></p>
