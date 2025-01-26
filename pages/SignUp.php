@@ -1,26 +1,16 @@
-<?php
-include('../data/test_data.php');
-$_SESSION['user'] = [
-  'id' => 1,
-  'name' => 'John Doe',
-  'role' => 'Admin'
-];
-$user = $_SESSION['user'];
-
-?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>صحفة تسجيل الدخول</title>
-  <link rel="stylesheet" href="../styles/SignIn.css" />
+  <title>صفحة التسجيل</title>
+  <link rel="stylesheet" href="../styles/SignUp.css" />
 </head>
 
 <body>
-  <div class="signin-container">
-    <h2>تسجيل الدخول</h2>
+  <div class="signup-container">
+    <h2>التسجيل</h2>
     <form action="/submit" method="POST">
       <div class="form-group">
         <label for="email">البريد الإلكتروني</label>
@@ -40,13 +30,25 @@ $user = $_SESSION['user'];
           placeholder="أدخل كلمة المرور"
           required />
       </div>
-
       <div class="form-group">
-        <button type="submit">سجل الدخول</button>
+        <label>الهوية</label>
+        <div class="radio-group">
+          <label>
+            <input type="radio" name="role" value="student" required />
+            طالب
+          </label>
+          <label>
+            <input type="radio" name="role" value="instructor" required />
+            موجه
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <button type="submit">سجل</button>
       </div>
     </form>
-    <div class="signup-button">
-      <a href="SignUp.php">ليس لديك حساب؟ سارع في التسجيل</a>
+    <div class="signin-button">
+      <a href="SignIn.php">تسجيل الدخول</a>
     </div>
   </div>
 </body>
