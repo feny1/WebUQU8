@@ -64,3 +64,13 @@ h1.heading {
   .members {
     font-size: 0.9rem;
   }
+  .full {
+    font-size: 0.9rem;
+    color: red;
+  }
+  .full.red {
+    color: red;
+  }
+  .full.green {
+    color: green;
+  }

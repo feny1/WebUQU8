@@ -26,8 +26,7 @@ $db->exec('CREATE TABLE IF NOT EXISTS groups (
     description TEXT, 
     "limit" INTEGER, 
     members INTEGER, 
-    class_id INTEGER, 
-    teacher_id INTEGER
+    class_id INTEGER
 )');
 $db->exec('CREATE TABLE IF NOT EXISTS group_students (
     group_id INTEGER, 
@@ -96,6 +95,7 @@ function getClasses()
     return $classes;
 }
 
+
 // get all teacher groups from the database
 function getTeacherGroups($teacher_id)
 {
@@ -139,6 +139,107 @@ function getTeacher($id)
 
     $stmt = $db->prepare('SELECT * FROM users WHERE id = :id');
     $stmt->bindValue(':id', $id, SQLITE3_INTEGER);
+
+    $result = $stmt->execute();
+
+    if ($result) {
+        return $result->fetchArray(SQLITE3_ASSOC);
+    }
+
+    return null;
+}
+
+// get all students from the database
+function getStudents()
+{
+    global $db;
+
+    $result = $db->query('SELECT * FROM users WHERE role = "student"');
+
+    $students = [];
+    while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
+        $students[] = $row;
+    }
+
+    return $students;
+}
+
+// get student by id
+function getStudent($id)
+{
+    global $db;
+
+    $stmt = $db->prepare('SELECT * FROM users WHERE id = :id AND role = "student"');
+    $stmt->bindValue(':id', $id, SQLITE3_INTEGER);
+
+    $result = $stmt->execute();
+
+    if ($result) {
+        return $result->fetchArray(SQLITE3_ASSOC);
+    }
+
+    return null;
+}
+
+// get all students in a group
+function getGroupStudentsByGroupId($group_id)
+{
+    global $db;
+
+    $stmt = $db->prepare('SELECT * FROM group_students WHERE group_id = :group_id');
+    $stmt->bindValue(':group_id', $group_id, SQLITE3_INTEGER);
+
+    $result = $stmt->execute();
+
+    $students = [];
+    while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
+        $students[] = getStudent($row['student_id']);
+    }
+
+    return $students;
+}
+
+// get all students in a class
+function getStudentsByClassId($class_id)
+{
+    global $db;
+
+    $stmt = $db->prepare('SELECT * FROM classes WHERE id = :id');
+    $stmt->bindValue(':id', $class_id, SQLITE3_INTEGER);
+
+    $result = $stmt->execute();
+
+    $class = $result->fetchArray(SQLITE3_ASSOC);
+
+    $stmt = $db->prepare('SELECT * FROM groups WHERE class_id = :class
+    ');
+    $stmt->bindValue(':class', $class_id, SQLITE3_INTEGER);
+
+    $result = $stmt->execute();
+
+    $groups = [];
+
+    while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
+        $groups[] = $row;
+    }
+
+    $students = [];
+
+    foreach ($groups as $group) {
+        $students = array_merge($students, getGroupStudentsByGroupId($group['id']));
+    }
+
+    return $students;
+}
+// get class by group id
+function getClassByGroupId($group_id)
+{
+    global $db;
+
+    $group = getGroup($group_id);
+
+    $stmt = $db->prepare('SELECT * FROM classes WHERE id = :id');
+    $stmt->bindValue(':id', $group['class_id'], SQLITE3_INTEGER);
 
     $result = $stmt->execute();
 

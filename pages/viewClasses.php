@@ -29,6 +29,7 @@ if ($user['role'] == 'teacher') {
         <h2 class="title"><?php echo $class['title']; ?></h2>
         <p class="desc"><?php echo $class['description']; ?></p>
         <p class="limit">الحد الأقصى للطلاب: <?php echo $class['limit']; ?></p>
+        <p class="teacher">المعلم: <?php echo getTeacher($class['teacher_id'])['name']; ?></p>
       </a>
     <?php } ?>
   </main>

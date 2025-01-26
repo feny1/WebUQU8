@@ -6,6 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $description = $_POST['description'];
   $limit = $_POST['limit'];
   $teacher_id = $_POST['teacher_id'];
+  $students = $_POST['students'];
   $stmt = $db->prepare('INSERT INTO classes (title, description, "limit", teacher_id) VALUES (:title, :description, :limit, :teacher_id)');
   $stmt->bindValue(':title', $title);
   $stmt->bindValue(':description', $description);
@@ -18,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = $db->prepare('INSERT INTO groups (title, description, "limit", class_id, teacher_id) VALUES (:title, :description, :limit, :class_id, :teacher_id)');
     $stmt->bindValue(':title', "مجموعة $i");
     $stmt->bindValue(':description', "مجموعة $i");
-    $stmt->bindValue(':limit', 10);
+    $stmt->bindValue(':limit', $students);
     $stmt->bindValue(':class_id', $class_id);
     $stmt->bindValue(':teacher_id', $teacher_id);
     $stmt->execute();
@@ -61,6 +62,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <div class="form-group">
         <label for="limit">الحد الأقصى للمجموعات</label>
         <input type="number" id="limit" name="limit" placeholder="أدخل الحد الأقصى للمجموعات" required />
+      </div>
+      <!-- max number of students in each group -->
+      <div class="form-group">
+        <label for="students">الحد الأقصى للطلاب في المجموعة</label>
+        <input type="number" id="students" name="students" placeholder="أدخل الحد الأقصى للطلاب في المجموعة" required />
       </div>
       <!-- auto fill teacher_id -->
       <input type="hidden" name="teacher_id" value="<?php echo $user['id']; ?>" />
