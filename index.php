@@ -8,7 +8,7 @@ include_once('./data/test_data.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>الرئيسية</title>
     <link rel="stylesheet" href="./styles/index.css">
 </head>
 
