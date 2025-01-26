@@ -1,6 +1,7 @@
 /* Styles will be added in this folder */
 body {
   padding: 1rem 2rem;
+  background-color: #f4f4f4;
 }
 
 h1 {
@@ -49,4 +50,12 @@ main a {
 
   font-size: 2rem;
   border-radius: 5px;
+}
+
+main a:hover {
+  transition-duration: 300ms;
+  background-color: rgb(50, 50, 242);
+  color: #fafafa;
+  border: 1px solid rgb(47, 167, 241);
+  box-shadow: 0 5px 5px 0 rgb(47, 167, 241);
 }
