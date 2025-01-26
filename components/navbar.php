@@ -1,10 +1,6 @@
 <?php
 // session_start();
 // Example user data
-// $_SESSION['user'] = [
-//   'username' => 'John Doe',
-//   'role' => 'Admin'
-// ];
 $loggedIn = isset($_SESSION['user']);
 ?>
 
@@ -16,7 +12,7 @@ $loggedIn = isset($_SESSION['user']);
     <div class="user">
       <img src="../images/purple2.png" alt="user image" />
       <div class="info">
-        <h2 class="username"><?php echo $_SESSION['user']['username']; ?></h2>
+        <h2 class="username"><?php echo $_SESSION['user']['name']; ?></h2>
         <p class="role"><?php echo $_SESSION['user']['role']; ?></p>
       </div>
     </div>

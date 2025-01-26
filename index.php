@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 
@@ -10,13 +14,20 @@
 
 <body>
     <?php include_once './components/navbar.php'; ?>
-    <h1>Organize your groups <br /> effeciently</h1>
-    <?php if (isset($_SESSION["user"])): ?>
-        <a href="#">signIn</a>
-        <a href="#">signUp</a>
-    <?php else: ?>
-        <a href="#">My Groups</a>
-    <?php endif ?>
+
+    <main>
+        <div>
+            <h1>حافظ على تنظيم <br /> طلابك</h1>
+            <div class="direct-link">
+                <?php if (!isset($_SESSION["user"])): ?>
+                    <a href="#">تسجيل الدخول</a>
+                    <a href="#">تسجيل جديد</a>
+                <?php else: ?>
+                    <a href="./pages/viewGroups.php">مجموعاتي</a>
+                <?php endif ?>
+            </div>
+        </div>
+    </main>
 </body>
 
 </html>

@@ -1,5 +1,15 @@
 <?php
 // Example 4 students data and 3 teachers data in the same array with id, name, and role
+
+session_start();
+
+$_SESSION['user'] = [
+    'id' => 1,
+    'name' => 'John Doe',
+    'role' => 'Admin'
+];
+$user = $_SESSION['user'];
+
 $users = [
     ['id' => 1, 'name' => 'John Doe', 'role' => 'Student'],
     ['id' => 2, 'name' => 'Jane Doe', 'role' => 'Student'],
@@ -23,6 +33,14 @@ $_groups = [
     ['id' => 5, 'title' => 'Group 2', 'description' => 'Group 2 description', 'limit' => 10, 'members' => 5, 'class_id' => 2, 'teacher_id' => 6],
     ['id' => 6, 'title' => 'Group 3', 'description' => 'Group 3 description', 'limit' => 10, 'members' => 5, 'class_id' => 2, 'teacher_id' => 7]
 ];
+
+function getGroup($id)
+{
+    global $_groups;
+    foreach ($_groups as $group) {
+        if ($group['id'] == $id) return $group;
+    }
+}
 
 // Example join group/student data with group_id and student_id
 $group_students = [
@@ -57,5 +75,3 @@ $group_students = [
     ['group_id' => 6, 'student_id' => 4],
     ['group_id' => 6, 'student_id' => 5]
 ];
-?>
-    
