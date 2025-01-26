@@ -1,10 +1,10 @@
 <?php
 // session_start();
 // Example user data
-$_SESSION['user'] = [
-  'username' => 'John Doe',
-  'role' => 'Admin'
-];
+// $_SESSION['user'] = [
+//   'username' => 'John Doe',
+//   'role' => 'Admin'
+// ];
 $loggedIn = isset($_SESSION['user']);
 ?>
 
@@ -21,6 +21,7 @@ $loggedIn = isset($_SESSION['user']);
       </div>
     </div>
     <nav>
+      <a href="../index.php">الرئيسية</a>
       <a href="../pages/viewClasses.php">الفصول</a>
       <a href="../pages/Setting.html">الإعدادات</a>
     </nav>
