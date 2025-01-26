@@ -1,5 +1,12 @@
 <?php 
-  include "../data/test_data.php";
+include '../data/db.php';
+// get classes if the user is a teacher
+if ($user['role'] == 'teacher') {
+  $classes = getTeacherClasses($user['id']);
+} else {
+  $classes = getClasses();
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">

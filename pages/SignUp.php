@@ -67,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             طالب
           </label>
           <label>
-            <input type="radio" name="role" value="instructor" required />
+            <input type="radio" name="role" value="teacher" required />
             موجه
           </label>
         </div>

@@ -23,7 +23,12 @@ include_once('./data/test_data.php');
                     <a class="call" href="./pages/SignIn.php">تسجيل الدخول</a>
                     <a href="./pages/SignUp.php">تسجيل جديد</a>
                 <?php else: ?>
-                    <a class="call" href="./pages/viewGroups.php">مجموعاتي</a>
+                    <!-- if user is a teacher -->
+                    <?php if ($_SESSION["user"]["role"] == "teacher"): ?>
+                        <a class="call" href="./pages/viewClasses.php">عرض الفصول</a>
+                    <?php else: ?>
+                        <a class="call" href="./pages/viewGroups.php">عرض المجموعات</a>
+                    <?php endif ?>
                 <?php endif ?>
             </div>
         </div>

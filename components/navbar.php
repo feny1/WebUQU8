@@ -20,6 +20,10 @@ $loggedIn = isset($_SESSION['user']);
       <a href="../index.php">الرئيسية</a>
       <a href="../pages/viewClasses.php">الفصول</a>
       <a href="../pages/Setting.php">الإعدادات</a>
+      <!-- if user is a teacher show create class link -->
+      <?php if ($_SESSION['user']['role'] == 'teacher') { ?>
+        <a href="../pages/CreateClass.php">إنشاء فصل</a>
+      <?php } ?>
     </nav>
   <?php } else { ?>
     <nav class="login">

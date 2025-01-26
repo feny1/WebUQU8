@@ -1,7 +1,9 @@
 <?php
-include "../data/test_data.php";
+include '../data/db.php';
 $class = $_GET['id'] ?? null;
+$_groups = getGroups();
 $groups = [];
+$classes = getClasses();
 if (isset($class)) {
   $title = $classes[$class - 1]['title'];
   foreach ($_groups as $group) {
@@ -9,9 +11,13 @@ if (isset($class)) {
       $groups[] = $group;
     }
   }
+} elseif ($user['role'] == 'teacher') {
+  $title = $user['name'];
+  $groups = getTeacherGroups($user['id']);
 } else {
   $title = $user['name'];
   $user_id = $user['id'];
+  $group_students = getGroupStudents();
   foreach ($group_students as $group) {
     if ($group['student_id'] == $user_id) {
       $groups[] = getGroup($group['group_id']);
@@ -47,7 +53,8 @@ if (isset($class)) {
         <p class="desc"><?php echo $group['description']; ?></p>
         <p class="limit">الحد الأقصى للطلاب: <?php echo $group['limit']; ?></p>
         <p class="members">عدد الطلاب: <?php echo $group['members']; ?></p>
-        <p class="teacher">المعلم: <?php echo $users[$group['teacher_id'] - 1]['name']; ?></p>
+        <p class="teacher">المعلم: <?php echo getTeacher($group['teacher_id'])['name'];
+         ?></p>
       </a>
     <?php } ?>
   </main>
