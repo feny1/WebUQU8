@@ -1,11 +1,10 @@
 /* Styles will be added in this folder */
 body {
   padding: 1rem 2rem;
-  background-color: #f4f4f4;
+  background-image: linear-gradient(135deg, #f4f4f4, rgba(50, 50, 242, 0.205));
 }
 
 h1 {
-  margin-top: 3rem;
   font-size: 2.25rem;
   text-align: center;
   background-clip: text;
@@ -54,8 +53,13 @@ main a {
 
 main a:hover {
   transition-duration: 300ms;
-  background-color: rgb(118, 118, 244);
-  color: #fafafa;
   border: 1px solid rgb(47, 167, 241);
-  box-shadow: 0 5px 10px 0 rgb(100, 189, 244);
+  filter: brightness(0.8);
+
+  transform: scale(1.04);
+}
+
+main a.call {
+  background-color: rgb(50, 50, 242);
+  color: #fafafa;
 }

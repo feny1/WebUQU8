@@ -20,10 +20,10 @@ include_once('./data/test_data.php');
             <h1>حافظ على تنظيم <br /> طلابك</h1>
             <div class="direct-link">
                 <?php if (!isset($_SESSION["user"])): ?>
-                    <a href="#">تسجيل الدخول</a>
-                    <a href="#">تسجيل جديد</a>
+                    <a class="call" href="./pages/SignIn.php">تسجيل الدخول</a>
+                    <a href="./pages/SignUp.php">تسجيل جديد</a>
                 <?php else: ?>
-                    <a href="./pages/viewGroups.php">مجموعاتي</a>
+                    <a class="call" href="./pages/viewGroups.php">مجموعاتي</a>
                 <?php endif ?>
             </div>
         </div>

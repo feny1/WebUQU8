@@ -27,8 +27,7 @@ $loggedIn = isset($_SESSION['user']);
         <a href="../index.php">الرئيسية</a>
       </div>
       <div>
-        <a href="../pages/SignUp.php">التسجيل</a>
-        <a href="../pages/SignIn.php">الدخول</a>
+        <a href="../pages/SignIn.php">تسجيل الدخول</a>
       </div>
 
     </nav>
