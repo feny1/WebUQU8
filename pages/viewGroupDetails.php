@@ -56,6 +56,26 @@ $students = getStudentsByClassId($class['id']);
                 <?php endforeach; ?>
             </ul>
         </div>
+        <div class="group">
+            <h1 class="title">
+                التقييم
+            </h1>
+            <p class="limit">
+                التواصل: <?php echo $group['interaction']??'-'; ?>/3
+            </p>
+            <p class="limit">
+                الجودة: <?php echo $group['quality']??'-'; ?>/3
+            </p>
+            <p class="limit">
+                التقييم: <?php echo $group['grading']??'-'; ?>/100
+            </p>
+            <p class="desc">
+                مراجعة:<br>&ThickSpace;<?php echo $group['feedback']??'-'; ?>
+            </p>
+            <?php if($user['role'] === 'teacher'){?>
+                <a href="../pages/teacherRate.php?id=<?php echo $group['id'];?>">تقييم</a>
+            <?php } ?>
+        </div>
 
     </main>
 

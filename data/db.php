@@ -1,6 +1,6 @@
 <?php
 session_start();
-$user = $_SESSION['user']?? null;
+$user = $_SESSION['user'] ?? null;
 // Use SQLite database and create if not exists
 $db = new SQLite3('../data/database.db');
 
@@ -26,7 +26,11 @@ $db->exec('CREATE TABLE IF NOT EXISTS groups (
     description TEXT, 
     "limit" INTEGER, 
     members INTEGER, 
-    class_id INTEGER
+    class_id INTEGER,
+    interaction INTEGER,
+    quality INTEGER,
+    grading INTEGER,
+    feedback TEXT
 )');
 $db->exec('CREATE TABLE IF NOT EXISTS group_students (
     group_id INTEGER, 
@@ -238,8 +242,13 @@ function getClassByGroupId($group_id)
 
     $group = getGroup($group_id);
 
+    if (!$group || !isset($group['class_id'])) {
+        return null; // Or handle the error appropriately
+    }
+
     $stmt = $db->prepare('SELECT * FROM classes WHERE id = :id');
     $stmt->bindValue(':id', $group['class_id'], SQLITE3_INTEGER);
+
 
     $result = $stmt->execute();
 
@@ -267,4 +276,3 @@ function getUserByEmail($email)
 
     return null; // Return null if no user found
 }
-?>
