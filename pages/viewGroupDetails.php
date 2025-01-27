@@ -95,7 +95,7 @@ $students = getStudentsByClassId($class['id']);
             <button type="submit" class="leave">Leave Group</button>
         </form>
     <?php endif; ?>
-    <button onclick="history.back()" class="back">Back</button>
+    <button onclick="window.location.href = '../pages/viewGroups.php?id=<?php echo $class['id'];?>'" class="back">Back</button>
 </body>
 
 </html>
