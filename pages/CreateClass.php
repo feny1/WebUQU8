@@ -16,12 +16,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   //auto create groups for the class depending on the limit
   $class_id = $db->lastInsertRowID();
   for ($i = 1; $i <= $limit; $i++) {
-    $stmt = $db->prepare('INSERT INTO groups (title, description, "limit", class_id, teacher_id) VALUES (:title, :description, :limit, :class_id, :teacher_id)');
+    $stmt = $db->prepare('INSERT INTO groups (title, description, "limit", class_id) VALUES (:title, :description, :limit, :class_id)');
     $stmt->bindValue(':title', "مجموعة $i");
     $stmt->bindValue(':description', "مجموعة $i");
     $stmt->bindValue(':limit', $students);
     $stmt->bindValue(':class_id', $class_id);
-    $stmt->bindValue(':teacher_id', $teacher_id);
     $stmt->execute();
   }
 

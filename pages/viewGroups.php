@@ -49,7 +49,7 @@ if (isset($class)) {
   <main class="container">
     <!-- Class details -->
     <?php if (isset($class)) { ?>
-      <div class="group">
+      <div class="group first">
         <h2 class="title"><?php echo $classes[$class - 1]['title']; ?></h2>
         <p class="desc">الوصف: <?php echo $classes[$class - 1]['description']; ?></p>
         <!-- Students total -->
@@ -63,14 +63,14 @@ if (isset($class)) {
 
     <?php foreach ($groups as $group) {
       $_group_students = getGroupStudentsByGroupId($group['id']);
-         ?>
+    ?>
       <!-- If student is a member of the group, add a class "joined" -->
-       
+
       <a href="./viewGroupDetails.php?id=<?php echo $group['id']; ?>" class="group <?php echo in_array($user['id'], array_column($_group_students, 'id')) ? 'joined' : ''; ?>">
         <h2 class="title"><?php echo $group['title']; ?></h2>
         <p class="desc"><?php echo $group['description']; ?></p>
         <p class="limit">الحد الأقصى للطلاب: <?php echo $group['limit']; ?></p>
-        <p class="members">عدد الطلاب: <?php echo count(getGroupStudentsByGroupId($group['id']));?>/<?php echo $group['limit']; ?>      </p>
+        <p class="members">عدد الطلاب: <?php echo count(getGroupStudentsByGroupId($group['id'])); ?>/<?php echo $group['limit']; ?> </p>
         <!-- is full? red Full green not Full -->
         <p class="full <?php echo count(getGroupStudentsByGroupId($group['id'])) >= $group['limit'] ? 'red' : 'green'; ?>">
           <?php echo count(getGroupStudentsByGroupId($group['id'])) >= $group['limit'] ? 'ممتلئ' : 'غير ممتلئ'; ?>

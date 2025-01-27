@@ -1,101 +1,113 @@
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    list-style: none;
-  }
-  
-  body {
-    padding: 2rem 4rem;
-  }
-  
-  h1.heading {
-    margin-block: 1.5rem;
-  }
-  
-  .container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  
-    gap: 1.5rem;
-  }
-  
-  .group {
-    display: grid;
-    gap: 0.75rem;
-    background-image: linear-gradient(to right, #dbe1f6 10%, #eee);
-    padding: 1.5rem 1rem;
-    box-shadow: 0 0 5px 1px rgb(50, 50, 242);
-  
-    color: #333;
-  
-    cursor: pointer;
-  }
-  
-  .group:hover {
-    transition-duration: 300ms;
-    transition-timing-function: ease-out;
-    transform: scale(1.03);
-  
-    box-shadow: 0 0 5px 3px rgb(94, 28, 236);
-  }
-  /*
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+body {
+  padding: 2rem 4rem;
+}
+
+h1.heading {
+  margin-block: 1.5rem;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+
+  gap: 1.5rem;
+}
+
+.group {
+  display: grid;
+  gap: 0.75rem;
+  background-image: linear-gradient(to right, #dbe1f6 10%, #eee);
+  padding: 1.5rem 1rem;
+  box-shadow: 0 0 5px 1px rgb(50, 50, 242);
+
+  color: #333;
+
+  cursor: pointer;
+}
+
+.group.first {
+  display: grid;
+  gap: 0.75rem;
+  background-image: linear-gradient(to right, #ecdbf6 10%, #eee);
+  padding: 1.5rem 1rem;
+  box-shadow: 0 0 5px 1px rgb(100, 0, 131);
+
+  color: #333;
+
+  cursor: pointer;
+}
+
+.group:hover {
+  transition-duration: 300ms;
+  transition-timing-function: ease-out;
+  transform: scale(1.03);
+
+  box-shadow: 0 0 5px 3px rgb(94, 28, 236);
+}
+/*
     */
-    h2.title {
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
-    .desc {
-      font-size: 1rem;
-    }
-    .limit {
-      font-size: 0.9rem;
-    }
-    .members {
-      font-size: 0.9rem;
-    }
-    .group {
-      margin-top: 1rem;
-        padding: 1rem;
-        transition: 0.3s;
-    }
-    .group:hover {
-        background-color: #f1f1f1;
-    }
-    .join {
-      background-color: #4CAF50;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-top: 1rem;
-    }
-    .join:hover {
-      background-color: #45a049;
-    }
-    .leave {
-      background-color: #f44336;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-top: 1rem;
-    }
-    .leave:hover {
-      background-color: #da190b;
-    }
-    .back {
-      background-color: #f1f1f1;
-      color: black;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-top: 1rem;
-    }
-    .back:hover {
-      background-color: #ddd;
-    }
+h2.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.desc {
+  font-size: 1rem;
+}
+.limit {
+  font-size: 0.9rem;
+}
+.members {
+  font-size: 0.9rem;
+}
+.group {
+  margin-top: 1rem;
+  padding: 1rem;
+  transition: 0.3s;
+}
+.group:hover {
+  background-color: #f1f1f1;
+}
+.join {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+.join:hover {
+  background-color: #45a049;
+}
+.leave {
+  background-color: #f44336;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+.leave:hover {
+  background-color: #da190b;
+}
+.back {
+  background-color: #f1f1f1;
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+.back:hover {
+  background-color: #ddd;
+}
