@@ -1,6 +1,6 @@
 <?php
 session_start();
-$user = $_SESSION['user']?? null;
+$user = $_SESSION['user'] ?? null;
 // Use SQLite database and create if not exists
 $db = new SQLite3('../data/database.db');
 
@@ -26,7 +26,8 @@ $db->exec('CREATE TABLE IF NOT EXISTS groups (
     description TEXT, 
     "limit" INTEGER, 
     members INTEGER, 
-    class_id INTEGER
+    class_id INTEGER,    
+    teacher_id INTEGER
 )');
 $db->exec('CREATE TABLE IF NOT EXISTS group_students (
     group_id INTEGER, 
@@ -267,4 +268,3 @@ function getUserByEmail($email)
 
     return null; // Return null if no user found
 }
-?>

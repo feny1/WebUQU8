@@ -1,6 +1,6 @@
-<?php 
+<?php
 include '../data/db.php';
-$user = $_SESSION['user']??null;
+$user = $_SESSION['user'] ?? null;
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $title = $_POST['title'];
   $description = $_POST['description'];
