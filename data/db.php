@@ -9,7 +9,7 @@ $db->exec('CREATE TABLE IF NOT EXISTS users (
     id INTEGER PRIMARY KEY, 
     name TEXT, 
     email TEXT UNIQUE, 
-    password TEXT UNIQUE, 
+    password TEXT, 
     role TEXT
 )');
 
@@ -34,6 +34,10 @@ $db->exec('CREATE TABLE IF NOT EXISTS groups (
 )');
 $db->exec('CREATE TABLE IF NOT EXISTS group_students (
     group_id INTEGER, 
+    student_id INTEGER
+)');
+$db->exec('CREATE TABLE IF NOT EXISTS class_students (
+    class_id INTEGER, 
     student_id INTEGER
 )');
 
@@ -65,6 +69,21 @@ function getGroupStudents()
     }
 
     return $group_students;
+}
+
+// get all class students from the database
+function getClassStudents()
+{
+    global $db;
+
+    $result = $db->query('SELECT * FROM class_students');
+
+    $class_students = [];
+    while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
+        $class_students[] = $row;
+    }
+
+    return $class_students;
 }
 
 // get group by id
@@ -135,6 +154,20 @@ function getTeacherClasses($teacher_id)
 
     return $classes;
 }
+// get all student classes from the database
+function getStudentClasses()
+{
+    global $db;
+
+    $result = $db->query('SELECT * FROM class_students');
+
+    $class_students = [];
+    while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
+        $class_students[] = $row;
+    }
+
+    return $class_students;
+}
 
 // get teacher by id
 function getTeacher($id)
@@ -142,6 +175,22 @@ function getTeacher($id)
     global $db;
 
     $stmt = $db->prepare('SELECT * FROM users WHERE id = :id');
+    $stmt->bindValue(':id', $id, SQLITE3_INTEGER);
+
+    $result = $stmt->execute();
+
+    if ($result) {
+        return $result->fetchArray(SQLITE3_ASSOC);
+    }
+
+    return null;
+}
+// get teacher by id
+function getClass($id)
+{
+    global $db;
+
+    $stmt = $db->prepare('SELECT * FROM classes WHERE id = :id');
     $stmt->bindValue(':id', $id, SQLITE3_INTEGER);
 
     $result = $stmt->execute();

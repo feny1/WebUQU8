@@ -1,10 +1,14 @@
-<?php 
+<?php
 include '../data/db.php';
 // get classes if the user is a teacher
 if ($user['role'] == 'teacher') {
   $classes = getTeacherClasses($user['id']);
 } else {
-  $classes = getClasses();
+  $classes_IDs = getStudentClasses($user['id']);
+  $classes = [];
+  foreach ($classes_IDs as $id) {
+    $classes[] = getClass($id);
+  }
 }
 
 ?>

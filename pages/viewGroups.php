@@ -1,5 +1,12 @@
 <?php
 include '../data/db.php';
+
+if (!isset($user)) {
+  header('Location: ./');
+  exit;
+}
+include '../actions/joinClass.php';
+
 $class = $_GET['id'] ?? null;
 $_groups = getGroups();
 $groups = [];
