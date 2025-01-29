@@ -1,0 +1,36 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding: 2rem;
+}
+
+.title {
+  margin-top: 2rem;
+}
+
+.group {
+  display: block;
+  padding: 1rem;
+  box-shadow: 0 0 5px 3px rgb(102, 102, 218);
+}
+
+.classes a {
+  color: #333;
+}
+
+.classes {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.not-in-class,
+.in-class {
+  font-size: 1.5rem;
+  color: rgb(102, 102, 218);
+  margin-block: 1rem;
+}

@@ -10,10 +10,12 @@ $loggedIn = isset($_SESSION['user']);
 <header>
   <?php if ($loggedIn) { ?>
     <div class="user">
-      <img src="../images/purple2.png" alt="user image" />
+      <a href="../pages/profile.php">
+        <img src="../images/purple2.png" alt="user image" />
+      </a>
       <div class="info">
         <h2 class="username"><?php echo $_SESSION['user']['name']; ?></h2>
-        <p class="role"><?php echo $_SESSION['user']['role']; ?></p>
+        <p class="role"><?php echo $_SESSION['user']['role'] == "teacher" ? "معلم" : "طالب"; ?></p>
       </div>
     </div>
     <nav>
