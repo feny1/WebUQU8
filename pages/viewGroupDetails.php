@@ -108,22 +108,6 @@ $missions = [
         </div>
 
     </main>
-    <h1>المهام</h1>
-    <main class="container">
-
-        <?php foreach ($missions as $mission) : ?>
-            <div class="group">
-                <h1 class="title">
-                    <?php echo $mission['name']; ?>
-                </h1>
-                <p><?php echo $mission['description']; ?></p>
-                <?php if ($user['role'] === 'teacher') { ?>
-                    <a href="../pages/missionEdit.php?id=<?php echo $group['id']; ?>">تعديل</a>
-                <?php } ?>
-            </div>
-        <?php endforeach; ?>
-    </main>
-
     <!-- if the user is a student, show the join group form only if the group is not full and the user is not a member of any group in the class -->
     <?php if ($user['role'] == 'student' && count($members) < $group['limit'] && !in_array($user['id'], array_column($students, 'id'))) : ?>
         <form action="../actions/joinGroup.php" method="post">
